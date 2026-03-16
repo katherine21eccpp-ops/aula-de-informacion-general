@@ -1,0 +1,1053 @@
+<style>
+.ag-wrap{font-family:Arial,sans-serif;background:#F0FAF8;color:#0A1E1A;line-height:1.7;font-size:15px;max-width:980px;margin:0 auto;}
+.ag-hero{background:linear-gradient(135deg,#0D6E5A 0%,#084D3E 55%,#02211A 100%);color:#fff;padding:40px 28px 32px;border-radius:12px;margin-bottom:8px;}
+.ag-hero h1{font-size:26px;font-weight:900;margin:0 0 10px;color:#fff;}
+.ag-hero h1 span{color:#F5D76E;}
+.ag-hero p{font-size:13px;color:rgba(255,255,255,.82);margin:0 0 18px;}
+.ag-badge{display:inline-block;background:rgba(245,215,110,.2);border:1px solid rgba(245,215,110,.45);color:#F5D76E;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:30px;margin-bottom:14px;}
+.ag-meta{display:flex;flex-wrap:wrap;gap:16px;}
+.ag-meta span{font-size:12px;color:rgba(255,255,255,.82);}
+/* CARPETAS */
+.ag-folders{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px;}
+.ag-folder{background:#fff;border:1px solid #A8DDD4;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 2px 12px rgba(13,110,90,.09);cursor:pointer;transition:transform .2s,box-shadow .2s;}
+.ag-folder:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(13,110,90,.15);}
+.ag-folder-tab{padding:14px 18px;display:flex;align-items:center;gap:12px;}
+.ag-folder-tab .ico{font-size:26px;}
+.ag-folder-tab h3{font-size:14px;font-weight:800;margin:0 0 2px;}
+.ag-folder-tab p{font-size:11px;margin:0;opacity:.85;}
+.ag-folder-body{display:none;padding:16px 18px;border-top:1px solid #A8DDD4;font-size:13px;color:#0A2E28;}
+.ag-folder.open .ag-folder-body{display:block;}
+/* SECCIONES */
+.ag-section{display:none;}
+.ag-section.active{display:block;}
+/* TABS */
+.ag-tabs{display:flex;flex-wrap:wrap;gap:4px;background:#fff;border:1px solid #A8DDD4;border-radius:10px;padding:8px;margin-bottom:20px;box-shadow:0 2px 8px rgba(13,110,90,.07);}
+.ag-tab{padding:9px 14px;font-size:12px;font-weight:700;color:#0D6E5A;cursor:pointer;border-radius:7px;border:none;background:none;transition:all .2s;white-space:nowrap;}
+.ag-tab:hover{background:#E0F5F0;color:#084D3E;}
+.ag-tab.active{background:#0D6E5A;color:#fff;}
+/* CARDS */
+.ag-card{background:#fff;border:1px solid #A8DDD4;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(13,110,90,.07);}
+.ag-card-title{font-size:14px;font-weight:700;color:#0D6E5A;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+/* ALERTS */
+.ag-alert{border-radius:10px;padding:14px 16px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;font-size:13px;}
+.ag-alert-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.ag-alert.green{background:#EDFAF3;border:1px solid #B8F0D3;color:#1A5C3A;}
+.ag-alert.yellow{background:#FFFBEB;border:1px solid #F7E6B8;color:#6C4A1A;}
+.ag-alert.teal{background:#E0F5F0;border:1px solid #A8DDD4;color:#084D3E;}
+.ag-alert strong{font-weight:700;display:block;margin-bottom:2px;}
+/* HIGHLIGHT */
+.ag-highlight{background:linear-gradient(135deg,#0D6E5A,#084D3E);color:#fff;border-radius:12px;padding:18px 22px;margin-bottom:18px;}
+.ag-highlight h3{font-size:14px;font-weight:700;color:#F5D76E;margin:0 0 6px;}
+.ag-highlight p{font-size:13px;color:rgba(255,255,255,.87);margin:0;line-height:1.7;}
+/* DIVIDER */
+.ag-divider{height:1px;background:#A8DDD4;margin:20px 0;}
+.ag-h3{font-size:14px;font-weight:700;color:#0D6E5A;margin:18px 0 10px;}
+/* FOOTER NAV */
+.ag-footer-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid #A8DDD4;}
+.ag-btn{background:#0D6E5A;color:#fff;border:none;border-radius:9px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s;}
+.ag-btn:hover{background:#084D3E;}
+.ag-btn.outline{background:#fff;color:#0D6E5A;border:2px solid #A8DDD4;}
+.ag-btn.outline:hover{background:#0D6E5A;color:#fff;border-color:#0D6E5A;}
+.ag-btn.gold{background:#C8980A;color:#fff;border:none;}
+.ag-btn.gold:hover{background:#A07800;}
+
+/* ══ MATRIZ CHEQUEO ══ */
+.chk-wrap{margin-bottom:18px;}
+.chk-group-title{font-size:13px;font-weight:700;color:#fff;background:#0D6E5A;padding:8px 14px;border-radius:8px 8px 0 0;margin:0;}
+.chk-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #A8DDD4;border-top:none;border-radius:0 0 8px 8px;overflow:hidden;margin-bottom:14px;}
+.chk-table thead tr{background:#E0F5F0;}
+.chk-table thead th{padding:8px 12px;font-size:11px;font-weight:700;color:#084D3E;text-align:left;letter-spacing:.04em;}
+.chk-table tbody tr{border-bottom:1px solid #E0F5F0;}
+.chk-table tbody tr:last-child{border-bottom:none;}
+.chk-table tbody td{padding:9px 12px;font-size:12.5px;color:#0A2E28;vertical-align:middle;}
+.chk-radio{display:flex;gap:10px;align-items:center;}
+.chk-radio label{display:flex;align-items:center;gap:4px;font-size:12px;cursor:pointer;font-weight:600;}
+.chk-radio input[type=radio]{accent-color:#0D6E5A;width:14px;height:14px;cursor:pointer;}
+.chk-obs{width:100%;border:1px solid #A8DDD4;border-radius:6px;padding:6px 10px;font-size:12px;font-family:Arial,sans-serif;resize:vertical;color:#0A2E28;min-height:34px;}
+.chk-obs:focus{outline:none;border-color:#0D6E5A;}
+.chk-header-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:16px;}
+.chk-field{display:flex;flex-direction:column;gap:4px;}
+.chk-field label{font-size:11px;font-weight:700;color:#084D3E;text-transform:uppercase;letter-spacing:.05em;}
+.chk-field input{border:1px solid #A8DDD4;border-radius:6px;padding:7px 10px;font-size:13px;font-family:Arial,sans-serif;color:#0A2E28;}
+.chk-field input:focus{outline:none;border-color:#0D6E5A;}
+.chk-status{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;}
+.status-ok{background:#EDFAF3;color:#1A5C3A;}
+.status-mal{background:#FFEBEB;color:#A00;}
+.status-rev{background:#FFFBEB;color:#7A5A00;}
+.result-bar{background:#E0F5F0;border-radius:10px;padding:14px 18px;margin-top:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.result-bar .score{font-size:22px;font-weight:900;color:#0D6E5A;}
+.result-bar .label{font-size:12px;color:#084D3E;}
+
+/* ══ MATRIZ APRENDIZAJE ══ */
+.apr-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(13,110,90,.08);margin-bottom:16px;}
+.apr-table thead tr{background:#0D6E5A;}
+.apr-table thead th{padding:10px 12px;font-size:11px;font-weight:700;color:#fff;text-align:left;letter-spacing:.05em;}
+.apr-table tbody tr{border-bottom:1px solid #E0F5F0;}
+.apr-table tbody tr:hover{background:#F0FAF8;}
+.apr-table tbody td{padding:9px 12px;font-size:12.5px;color:#0A2E28;vertical-align:middle;}
+.apr-input{width:100%;border:1px solid #A8DDD4;border-radius:5px;padding:5px 8px;font-size:12px;font-family:Arial,sans-serif;color:#0A2E28;}
+.apr-input:focus{outline:none;border-color:#0D6E5A;}
+.apr-select{width:100%;border:1px solid #A8DDD4;border-radius:5px;padding:5px 8px;font-size:12px;font-family:Arial,sans-serif;color:#0A2E28;background:#fff;}
+.apr-select:focus{outline:none;border-color:#0D6E5A;}
+.nivel-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;}
+.nivel-1{background:#FFEBEB;color:#A00;}
+.nivel-2{background:#FFF3E0;color:#944A00;}
+.nivel-3{background:#FFFBEB;color:#7A5A00;}
+.nivel-4{background:#EBF2FF;color:#1A3A8C;}
+.nivel-5{background:#EDFAF3;color:#1A5C3A;}
+.habilidad-row td:first-child{font-weight:600;color:#084D3E;}
+.progreso-bar-wrap{width:100%;background:#E0F5F0;border-radius:20px;height:10px;overflow:hidden;}
+.progreso-fill{height:100%;background:linear-gradient(90deg,#0D6E5A,#F5D76E);border-radius:20px;transition:width .4s;}
+
+/* ══ PRINT ══ */
+@media print{
+  .ag-tabs,.ag-btn,.ag-footer-nav,.ag-hero,.ag-badge,.ag-meta,.ag-tabs{display:none!important;}
+  .ag-section{display:block!important;}
+  .ag-card{box-shadow:none;border:1px solid #ccc;}
+  .chk-obs,.apr-input,.apr-select{border:1px solid #aaa;}
+  body{background:#fff;}
+}
+</style>
+
+<div class="ag-wrap">
+
+<!-- HERO -->
+<div class="ag-hero">
+  <div class="ag-badge">🇪🇨 Escuela de Conducción · Ecuador</div>
+  <h1>🗂️ <span>Aula de Información General</span></h1>
+  <p>Espacio de trabajo del instructor. Aquí encontrarás las matrices y registros esenciales para documentar tu labor diaria, el progreso de tus alumnos y el estado de los vehículos de práctica.</p>
+  <div class="ag-meta">
+    <span>📁 2 Matrices</span>
+    <span>✏️ Interactivas y descargables</span>
+    <span>🖨️ Listas para imprimir</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div style="margin-top:16px;"></div>
+
+<!-- ══════════ INICIO ══════════ -->
+<div class="ag-section active" id="ags0">
+
+  <div class="ag-highlight">
+    <h3>📌 ¿Cómo usar este espacio?</h3>
+    <p>Haz clic en cada carpeta para ver su descripción y acceder directamente al documento en Google Drive. Desde ahí podrás abrir, llenar y guardar la matriz correspondiente sin salir de tu entorno de trabajo.</p>
+  </div>
+
+  <p class="ag-h3">👨‍🏫 Carpetas por Instructor</p>
+  <p style="font-size:13px;color:#084D3E;margin:-8px 0 16px;">Cada instructor tiene su propia carpeta con acceso directo a sus dos matrices de trabajo. Haz clic en el nombre para desplegar los documentos.</p>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+
+    <!-- INSTRUCTOR 1 -->
+    <div class="ag-folder" id="inst1">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst1')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I1</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 1</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_1" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_1" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 2 -->
+    <div class="ag-folder" id="inst2">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst2')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I2</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 2</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_2" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_2" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 3 -->
+    <div class="ag-folder" id="inst3">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst3')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I3</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 3</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_3" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_3" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 4 -->
+    <div class="ag-folder" id="inst4">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst4')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I4</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 4</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_4" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_4" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 5 -->
+    <div class="ag-folder" id="inst5">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst5')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I5</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 5</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_5" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_5" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 6 -->
+    <div class="ag-folder" id="inst6">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst6')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I6</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 6</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_6" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_6" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTOR 7 -->
+    <div class="ag-folder" id="inst7">
+      <div class="ag-folder-tab" onclick="toggleFolder('inst7')" style="background:linear-gradient(135deg,#0D6E5A,#084D3E);cursor:pointer;padding:12px 18px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(245,215,110,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#F5D76E;flex-shrink:0;">I7</div>
+        <div style="flex:1;">
+          <h3 style="color:#F5D76E;font-size:14px;margin:0 0 2px;">Instructor 7</h3>
+          <p style="color:rgba(255,255,255,.75);font-size:11px;margin:0;">Chequeo del Vehículo · Nivel de Aprendizaje</p>
+        </div>
+        <span style="color:#F5D76E;font-size:16px;margin-left:auto;">▼</span>
+      </div>
+      <div class="ag-folder-body" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;background:#F0FAF8;border:1px solid #A8DDD4;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">🚗</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#084D3E;margin:0 0 3px;">Matriz de Chequeo del Vehículo</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro diario del estado del vehículo antes de cada práctica.</p>
+          </div>
+          <a href="LINK_CHEQUEO_INSTRUCTOR_7" target="_blank" style="background:#0D6E5A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FDF8EC;border:1px solid #E0C870;border-radius:8px;padding:12px 14px;">
+          <span style="font-size:22px;">📈</span>
+          <div style="flex:1;">
+            <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 3px;">Matriz de Nivel de Aprendizaje</p>
+            <p style="font-size:11px;color:#0A2E28;margin:0;">Registro del progreso del alumno por clase.</p>
+          </div>
+          <a href="LINK_APRENDIZAJE_INSTRUCTOR_7" target="_blank" style="background:#C8980A;color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;">Abrir →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<!-- ══════════ MATRIZ 1: CHEQUEO DEL VEHÍCULO ══════════ -->
+<div class="ag-section" id="ags1">
+
+  <div class="ag-card">
+    <div class="ag-card-title">🚗 Matriz de Chequeo del Vehículo — Pre-Práctica</div>
+
+    <!-- ENCABEZADO -->
+    <div style="background:#0D6E5A;color:#fff;padding:10px 14px;border-radius:8px;margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;color:#F5D76E;margin-bottom:8px;">📋 Datos Generales</div>
+      <div class="chk-header-info">
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Fecha</label>
+          <input type="date" id="chk-fecha" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Hora</label>
+          <input type="time" id="chk-hora" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Placa del Vehículo</label>
+          <input type="text" id="chk-placa" placeholder="Ej: ABC-1234" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Nombre del Instructor</label>
+          <input type="text" id="chk-instructor" placeholder="Nombre completo" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Alumno asignado</label>
+          <input type="text" id="chk-alumno" placeholder="Nombre del alumno" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Kilometraje actual</label>
+          <input type="number" id="chk-km" placeholder="Ej: 45230" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUPO 1: FRENOS -->
+    <div class="chk-wrap">
+      <p class="chk-group-title">🛑 1. Sistema de Frenos</p>
+      <table class="chk-table">
+        <thead><tr><th style="width:35%;">Ítem a verificar</th><th style="width:30%;">Estado</th><th>Observaciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Pedal de freno — firmeza y altura</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="f1" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="f1" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="f1" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Nivel de líquido de frenos (MIN/MAX)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="f2" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="f2" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="f2" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Pastillas de freno (sin chirrido)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="f3" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="f3" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="f3" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Freno de mano — tensión y efectividad</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="f4" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="f4" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="f4" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Testigo de frenos en tablero (apagado)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="f5" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="f5" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="f5" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO 2: NEUMÁTICOS -->
+    <div class="chk-wrap">
+      <p class="chk-group-title">🔘 2. Neumáticos y Suspensión</p>
+      <table class="chk-table">
+        <thead><tr><th style="width:35%;">Ítem a verificar</th><th style="width:30%;">Estado</th><th>Observaciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Presión de neumático delantero izquierdo</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n1" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n1" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n1" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="PSI actual..."></td>
+          </tr>
+          <tr>
+            <td>Presión de neumático delantero derecho</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n2" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n2" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n2" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="PSI actual..."></td>
+          </tr>
+          <tr>
+            <td>Presión de neumático trasero izquierdo</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n3" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n3" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n3" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="PSI actual..."></td>
+          </tr>
+          <tr>
+            <td>Presión de neumático trasero derecho</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n4" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n4" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n4" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="PSI actual..."></td>
+          </tr>
+          <tr>
+            <td>Neumático de repuesto (disponible e inflado)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n5" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n5" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n5" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Dibujo del neumático (mín. 1,6 mm)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n6" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n6" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n6" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Suspensión (sin ruidos ni rebote excesivo)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="n7" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="n7" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="n7" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO 3: LUCES -->
+    <div class="chk-wrap">
+      <p class="chk-group-title">💡 3. Luces y Señales</p>
+      <table class="chk-table">
+        <thead><tr><th style="width:35%;">Ítem a verificar</th><th style="width:30%;">Estado</th><th>Observaciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Luces bajas (delanteras)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l1" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l1" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l1" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Luces altas</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l2" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l2" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l2" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Luces traseras y de freno</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l3" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l3" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l3" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Direccionales (derechas e izquierdas)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l4" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l4" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l4" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Luces de emergencia (4 direccionales)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l5" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l5" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l5" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Bocina</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l6" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l6" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l6" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Limpiaparabrisas (funcionamiento y agua)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="l7" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="l7" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="l7" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO 4: FLUIDOS -->
+    <div class="chk-wrap">
+      <p class="chk-group-title">🛢️ 4. Niveles de Fluidos</p>
+      <table class="chk-table">
+        <thead><tr><th style="width:35%;">Ítem a verificar</th><th style="width:30%;">Estado</th><th>Observaciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Aceite de motor (varilla MIN/MAX)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="fl1" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="fl1" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="fl1" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Color y nivel..."></td>
+          </tr>
+          <tr>
+            <td>Refrigerante / agua del radiador</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="fl2" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="fl2" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="fl2" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Nivel en depósito..."></td>
+          </tr>
+          <tr>
+            <td>Líquido de frenos (depósito transparente)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="fl3" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="fl3" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="fl3" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Color y nivel..."></td>
+          </tr>
+          <tr>
+            <td>Agua del limpiaparabrisas</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="fl4" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="fl4" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="fl4" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Combustible suficiente para la práctica</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="fl5" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="fl5" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="fl5" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Nivel del indicador..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO 5: DOCUMENTOS Y SEGURIDAD -->
+    <div class="chk-wrap">
+      <p class="chk-group-title">📄 5. Documentos y Equipos de Seguridad</p>
+      <table class="chk-table">
+        <thead><tr><th style="width:35%;">Ítem a verificar</th><th style="width:30%;">Estado</th><th>Observaciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Matrícula vigente</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d1" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d1" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d1" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Fecha de vencimiento..."></td>
+          </tr>
+          <tr>
+            <td>SOAT vigente</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d2" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d2" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d2" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Fecha de vencimiento..."></td>
+          </tr>
+          <tr>
+            <td>Revisión técnica vehicular vigente</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d3" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d3" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d3" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Botiquín de primeros auxilios</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d4" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d4" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d4" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Extintor vigente</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d5" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d5" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d5" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Fecha de vencimiento..."></td>
+          </tr>
+          <tr>
+            <td>Triángulos de seguridad (2 unidades)</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d6" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d6" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d6" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+          <tr>
+            <td>Doble mando del instructor operativo</td>
+            <td><div class="chk-radio">
+              <label><input type="radio" name="d7" value="ok"> <span style="color:#1A5C3A;">✅ OK</span></label>
+              <label><input type="radio" name="d7" value="rev"> <span style="color:#7A5A00;">⚠️ Revisar</span></label>
+              <label><input type="radio" name="d7" value="mal"> <span style="color:#A00;">❌ Mal</span></label>
+            </div></td>
+            <td><input type="text" class="chk-obs" placeholder="Anota aquí..."></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RESULTADO + FIRMA -->
+    <div style="background:#0D6E5A;border-radius:10px;padding:16px 18px;margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;color:#F5D76E;margin-bottom:10px;">📝 Resultado del Chequeo y Firma</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:12px;">
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Estado general del vehículo</label>
+          <select style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+            <option value="">Selecciona...</option>
+            <option>✅ Apto para práctica</option>
+            <option>⚠️ Apto con observaciones</option>
+            <option>❌ No apto — requiere taller</option>
+          </select>
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Firma del Instructor</label>
+          <input type="text" placeholder="Nombre y firma" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+      </div>
+      <div class="chk-field">
+        <label style="color:rgba(255,255,255,.8);">Observaciones generales</label>
+        <textarea style="width:100%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:8px 10px;font-size:13px;font-family:Arial,sans-serif;min-height:60px;resize:vertical;" placeholder="Anota cualquier observación adicional sobre el estado del vehículo..."></textarea>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="ag-btn" onclick="window.print()">🖨️ Imprimir Chequeo</button>
+      <button class="ag-btn outline" onclick="agshow(0)">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MATRIZ 2: NIVEL DE APRENDIZAJE ══════════ -->
+<div class="ag-section" id="ags2">
+
+  <div class="ag-card">
+    <div class="ag-card-title">📈 Matriz de Nivel de Aprendizaje del Alumno</div>
+
+    <!-- ENCABEZADO ALUMNO -->
+    <div style="background:linear-gradient(135deg,#C8980A,#8B6800);color:#fff;padding:14px 16px;border-radius:8px;margin-bottom:16px;">
+      <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:10px;opacity:.9;">👤 Datos del Alumno y de la Clase</div>
+      <div class="chk-header-info">
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Nombres completos</label>
+          <input type="text" placeholder="Apellidos y nombres" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Cédula de identidad</label>
+          <input type="text" placeholder="Nro. de cédula" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Tipo de licencia que busca</label>
+          <select style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+            <option value="">Selecciona...</option>
+            <option>Tipo A — Motocicleta</option>
+            <option>Tipo B — Vehículo particular</option>
+            <option>Tipo C — Transporte liviano</option>
+            <option>Tipo D — Buses</option>
+            <option>Tipo E — Carga pesada</option>
+          </select>
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Fecha de la clase</label>
+          <input type="date" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Número de clase</label>
+          <input type="number" min="1" placeholder="Ej: 5" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Nombre del instructor</label>
+          <input type="text" placeholder="Nombre completo" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- ESCALA DE EVALUACIÓN -->
+    <div style="background:#F5F0E0;border:1px solid #E0C060;border-radius:8px;padding:12px 14px;margin-bottom:16px;">
+      <p style="font-size:12px;font-weight:700;color:#8B6800;margin:0 0 8px;">📊 Escala de Evaluación por Habilidad</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span class="nivel-badge nivel-1">1 — No logrado</span>
+        <span class="nivel-badge nivel-2">2 — En inicio</span>
+        <span class="nivel-badge nivel-3">3 — En proceso</span>
+        <span class="nivel-badge nivel-4">4 — Logrado</span>
+        <span class="nivel-badge nivel-5">5 — Sobresaliente</span>
+      </div>
+    </div>
+
+    <!-- TABLA DE HABILIDADES -->
+    <div style="overflow-x:auto;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:16px;">
+      <table class="apr-table">
+        <thead>
+          <tr>
+            <th style="width:30%;">Habilidad evaluada</th>
+            <th style="width:12%;text-align:center;">Nivel (1–5)</th>
+            <th style="width:25%;">Observación del instructor</th>
+            <th style="width:20%;">Meta para próxima clase</th>
+            <th style="width:13%;text-align:center;">Progreso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- GRUPO: INICIO -->
+          <tr style="background:#E0F5F0;"><td colspan="5" style="font-weight:700;color:#084D3E;font-size:12px;padding:8px 12px;">🔑 HABILIDADES BÁSICAS DE INICIO</td></tr>
+          <tr class="habilidad-row">
+            <td>Postura correcta al volante</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Arranque y apagado del motor</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Uso del embrague y cambio de marcha</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Aceleración progresiva</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Frenada suave y controlada</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+
+          <!-- GRUPO: MANIOBRAS -->
+          <tr style="background:#E0F5F0;"><td colspan="5" style="font-weight:700;color:#084D3E;font-size:12px;padding:8px 12px;">🔄 MANIOBRAS Y CONTROL DEL VEHÍCULO</td></tr>
+          <tr class="habilidad-row">
+            <td>Manejo en línea recta</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Giros a la derecha e izquierda</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Estacionamiento paralelo</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Estacionamiento en batería / espiga</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Arranque en pendiente</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Uso de espejos retrovisores</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+
+          <!-- GRUPO: NORMAS -->
+          <tr style="background:#E0F5F0;"><td colspan="5" style="font-weight:700;color:#084D3E;font-size:12px;padding:8px 12px;">📋 NORMAS Y COMPORTAMIENTO VIAL</td></tr>
+          <tr class="habilidad-row">
+            <td>Respeto a señales de tránsito</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Distancia de seguimiento</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Velocidad adecuada según la zona</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Prioridad a peatones y ciclistas</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Uso del cinturón de seguridad</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+
+          <!-- GRUPO: ACTITUD -->
+          <tr style="background:#E0F5F0;"><td colspan="5" style="font-weight:700;color:#084D3E;font-size:12px;padding:8px 12px;">🧠 ACTITUD Y MANEJO EMOCIONAL</td></tr>
+          <tr class="habilidad-row">
+            <td>Control de nervios bajo presión</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Toma de decisiones en la vía</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+          <tr class="habilidad-row">
+            <td>Receptividad a las indicaciones del instructor</td>
+            <td style="text-align:center;"><select class="apr-select" onchange="updateNivel(this)" style="width:90px;"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+            <td><input type="text" class="apr-input" placeholder="Observación..."></td>
+            <td><input type="text" class="apr-input" placeholder="Meta..."></td>
+            <td style="text-align:center;"><div class="progreso-bar-wrap"><div class="progreso-fill" style="width:0%"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RESUMEN Y FIRMA -->
+    <div style="background:linear-gradient(135deg,#C8980A,#8B6800);border-radius:10px;padding:16px 18px;margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:12px;">📝 Resumen de la Clase y Firma</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:12px;">
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Nivel general alcanzado en esta clase</label>
+          <select style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+            <option value="">Selecciona...</option>
+            <option>1 — No logrado</option>
+            <option>2 — En inicio</option>
+            <option>3 — En proceso</option>
+            <option>4 — Logrado</option>
+            <option>5 — Sobresaliente</option>
+          </select>
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">¿Está listo para la siguiente etapa?</label>
+          <select style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+            <option value="">Selecciona...</option>
+            <option>✅ Sí, avanzar a la siguiente etapa</option>
+            <option>🔄 Repetir esta etapa antes de avanzar</option>
+            <option>⚠️ Necesita refuerzo específico</option>
+          </select>
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Firma del instructor</label>
+          <input type="text" placeholder="Nombre y firma" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+        <div class="chk-field">
+          <label style="color:rgba(255,255,255,.8);">Firma del alumno</label>
+          <input type="text" placeholder="Nombre y firma" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;">
+        </div>
+      </div>
+      <div class="chk-field">
+        <label style="color:rgba(255,255,255,.8);">Observaciones generales del instructor sobre esta clase</label>
+        <textarea style="width:100%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:8px 10px;font-size:13px;font-family:Arial,sans-serif;min-height:70px;resize:vertical;" placeholder="Describe el desempeño general del alumno, avances importantes, dificultades observadas y recomendaciones para la próxima clase..."></textarea>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="ag-btn gold" onclick="window.print()">🖨️ Imprimir Matriz</button>
+      <button class="ag-btn outline" onclick="agshow(0)">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /ag-wrap -->
+
+<script>
+function agshow(i){
+  var s=document.querySelectorAll('.ag-section');
+  for(var j=0;j<s.length;j++){s[j].classList.remove('active');}
+  s[i].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleFolder(id){
+  var f=document.getElementById(id);
+  var isOpen=f.classList.contains('open');
+  document.querySelectorAll('.ag-folder').forEach(function(el){el.classList.remove('open');});
+  if(!isOpen){f.classList.add('open');}
+}
+function updateNivel(sel){
+  var val=parseInt(sel.value)||0;
+  var row=sel.closest('tr');
+  var bar=row.querySelector('.progreso-fill');
+  if(bar){bar.style.width=(val*20)+'%';}
+}
+// Fecha y hora automáticas
+window.onload=function(){
+  var now=new Date();
+  var fecha=document.getElementById('chk-fecha');
+  var hora=document.getElementById('chk-hora');
+  if(fecha){
+    var y=now.getFullYear(),m=String(now.getMonth()+1).padStart(2,'0'),d=String(now.getDate()).padStart(2,'0');
+    fecha.value=y+'-'+m+'-'+d;
+  }
+  if(hora){
+    var h=String(now.getHours()).padStart(2,'0'),min=String(now.getMinutes()).padStart(2,'0');
+    hora.value=h+':'+min;
+  }
+};
+</script>
